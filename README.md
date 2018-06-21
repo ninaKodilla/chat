@@ -1,0 +1,1 @@
+###first write npm run duid, next node index.js

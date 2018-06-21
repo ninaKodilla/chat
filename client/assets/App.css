@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #fff;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+}
+
+.AppHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.AppTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px 0;
+    font-size: 35px;
+    color: #EDEEF0;
+    background-color: #1C2036;
+    font-family: 'Shrikhand', cursive;
+}
+
+.AppRoom {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #1C2036;
+    color: #EDEEF0;
+}
+
+.AppBody {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.MessageWrapper {
+    background-color: #EDEEF0;
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    flex: 1;
+}
