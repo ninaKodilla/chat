@@ -6,6 +6,7 @@ import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import UsersList from './UsersList';
 import UserForm from './UserForm';
+import UsersListJoined from './UsersListJoined';
 
 const socket = io('/');
 
@@ -16,9 +17,10 @@ class App extends Component {
 			users: [],
 			messages: [],
 			text: '',
-			name: ''
-	};
-}
+			name: '',
+			avatar: null
+		};
+	}
 
 	componentDidMount() {
 		socket.on('message', message => this.messageReceive(message));
@@ -45,21 +47,21 @@ class App extends Component {
 		socket.emit('message', message);
 	}
 
-	handleUserSubmit(name) {
+	handleUserSubmit(name, avatar) {
 		this.setState({name});
-		socket.emit('join', name);
+		this.setState({avatar});
+		socket.emit('join', name, avatar);
 	}
 
 	renderUserForm() {
 		return (
-			<UserForm onUserSubmit={name => this.handleUserSubmit(name)}/>
+			<UserForm onUserSubmit={(name, avatar) => this.handleUserSubmit(name, avatar) } />
 		)
 	}
 
 	render() {
 		return this.state.name !== '' ? (this.renderLayout()) : this.renderUserForm() 
 	}
-
 
 	renderLayout() {
 		return (
@@ -68,16 +70,18 @@ class App extends Component {
 					<div className={styles.AppTitle}>ChatApp</div>
 				</div>
 				<div className={styles.AppBody}>
-					<UsersList users={this.state.users} />
+					<UsersList users={this.state.users} avatar={this.state.avatar} />
 					<div className={styles.MessageWrapper}>
-							<MessageList messages={this.state.messages} />
-							<MessageForm onMessageSubmit={message => this.handleMessageSubmit(message)}	name={this.state.name} />
+						<div className={styles.UsersJoined}>
+							<UsersListJoined users={this.state.users} />
+						</div>
+						<MessageList messages={this.state.messages} />
+						<MessageForm onMessageSubmit={message => this.handleMessageSubmit(message)}	name={this.state.name} />
 					</div>
 				</div>
 			</div>
 		);
 	}
 }
-
 
 export default hot(module)(App);

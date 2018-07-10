@@ -5,7 +5,8 @@ class UserForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: ''
+			name: '',
+			avatar: null
 		};
 	}
 
@@ -20,13 +21,16 @@ class UserForm extends Component {
 
 	render() {
 		return (
-			<form className={styles.UserForm} onSubmit={e => this.handleSubmit(e)}>
-				<input 
-					className={styles.UserInput}
-					placeholder="Write your nickname and press enter"
-					onChange={e => this.handleChange(e)}
-					value={this.state.name}
-				/>
+			<form className={styles.UserForm}>
+				<div className={styles.FormBox}>
+					<input 
+						className={styles.UserInput}
+						placeholder="Write your nickname and click button"
+						onChange={e => this.handleChange(e)}
+						value={this.state.name}
+					/>
+					<button className={styles.FormBtn} onClick={e => this.handleSubmit(e)}>GO!</button>
+				</div>
 			</form>
 		);
 	}

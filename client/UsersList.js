@@ -6,11 +6,12 @@ const UsersList = props => (
 		<div className={styles.UsersOnline}>
 			Online users: {props.users.length}
 		</div>
+		
 		<ul className={styles.UsersList}>
 			{
 				props.users.map((user) => {
 					return (
-						<li key={user.id} className={styles.UserItem}><img src={user.avatar} className={styles.UserImg}/>{user.name}</li>
+						<li key={user.id} className={styles.UserItem}>{user.name}</li>
 					);
 				})
 			}

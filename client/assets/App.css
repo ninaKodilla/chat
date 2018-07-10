@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     background-color: #fff;
 }
 
@@ -26,14 +26,14 @@ body {
     font-size: 35px;
     color: #EDEEF0;
     background-color: #1C2036;
-    font-family: 'Shrikhand', cursive;
+    font-family: 'Concert One', cursive;
 }
 
 .AppRoom {
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    width: 30px;
     justify-content: center;
     box-sizing: border-box;
     padding: 20px;

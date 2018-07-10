@@ -29,5 +29,9 @@
     "style-loader": "^0.21.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.2"
+  },
+  "devDependencies": {
+    "formidable": "^1.2.1",
+    "react-images-upload": "^1.1.99"
   }
 }
