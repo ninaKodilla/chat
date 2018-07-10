@@ -5,8 +5,7 @@ class UserForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			avatar: null
+			name: ''
 		};
 	}
 
