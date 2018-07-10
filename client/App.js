@@ -17,8 +17,7 @@ class App extends Component {
 			users: [],
 			messages: [],
 			text: '',
-			name: '',
-			avatar: null
+			name: ''
 		};
 	}
 
@@ -47,15 +46,14 @@ class App extends Component {
 		socket.emit('message', message);
 	}
 
-	handleUserSubmit(name, avatar) {
+	handleUserSubmit(name) {
 		this.setState({name});
-		this.setState({avatar});
-		socket.emit('join', name, avatar);
+		socket.emit('join', name);
 	}
 
 	renderUserForm() {
 		return (
-			<UserForm onUserSubmit={(name, avatar) => this.handleUserSubmit(name, avatar) } />
+			<UserForm onUserSubmit={(name) => this.handleUserSubmit(name) } />
 		)
 	}
 
@@ -70,7 +68,7 @@ class App extends Component {
 					<div className={styles.AppTitle}>ChatApp</div>
 				</div>
 				<div className={styles.AppBody}>
-					<UsersList users={this.state.users} avatar={this.state.avatar} />
+					<UsersList users={this.state.users} />
 					<div className={styles.MessageWrapper}>
 						<div className={styles.UsersJoined}>
 							<UsersListJoined users={this.state.users} />
